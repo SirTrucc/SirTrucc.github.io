@@ -19,7 +19,24 @@
     --neon-dim: #1C5C68;
   }
 
+  html[data-theme="light"]{
+    --bg: #F5F7FA;
+    --panel: #FFFFFF;
+    --line: #DCE2E8;
+    --text: #131820;
+    --dim: #5B6472;
+    --neon: #0088A3;
+    --neon-dim: #A9DCE4;
+  }
+
   *{ box-sizing: border-box; }
+
+  html{
+    color-scheme: dark;
+  }
+  html[data-theme="light"]{
+    color-scheme: light;
+  }
 
   body{
     margin:0;
@@ -33,6 +50,7 @@
     font-family: "IBM Plex Sans", Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
+    transition: background-color .2s ease, color .2s ease;
   }
 
   .wrap{
@@ -48,6 +66,7 @@
     gap: 28px;
     align-items:flex-start;
     border-bottom: 1px solid var(--line);
+    position: relative;
   }
   header img{
     width: 120px; height: 120px;
@@ -104,6 +123,47 @@
   .links a:hover, .links a:focus-visible{
     color: var(--neon);
     border-bottom-color: var(--neon);
+  }
+
+  /* Theme toggle button */
+  .theme-toggle{
+    position: absolute;
+    top: 56px;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--dim);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 12px 6px 10px;
+    cursor: pointer;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .theme-toggle:hover, .theme-toggle:focus-visible{
+    color: var(--neon);
+    border-color: var(--neon-dim);
+    outline: none;
+  }
+  .theme-toggle .icon{
+    width: 14px; height: 14px;
+    display: inline-flex;
+  }
+  .theme-toggle .icon svg{ width:100%; height:100%; }
+  .theme-toggle .icon-sun{ display:none; }
+  html[data-theme="light"] .theme-toggle .icon-sun{ display:inline-flex; }
+  html[data-theme="light"] .theme-toggle .icon-moon{ display:none; }
+  html:not([data-theme="light"]) .theme-toggle .icon-moon{ display:inline-flex; }
+
+  @media (max-width: 560px){
+    .theme-toggle{
+      position: static;
+      margin-top: 18px;
+      align-self: flex-start;
+    }
   }
 
   section{ padding-top: 40px; }
@@ -205,6 +265,16 @@
 <div class="wrap">
 
   <header>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+      <span class="icon icon-moon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </span>
+      <span class="icon icon-sun" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </span>
+      <span id="themeLabel">dark</span>
+    </button>
+
     <img src="profile.jpg" alt="Portrait of Tran Ly Kien Truc">
     <div class="id">
       <p class="prompt">~/undergrad/math-phys $</p>
@@ -325,5 +395,43 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('themeToggle');
+  var label = document.getElementById('themeLabel');
+  var STORAGE_KEY = 'site-theme';
+
+  function safeGet(key){
+    try { return localStorage.getItem(key); } catch(e){ return null; }
+  }
+  function safeSet(key, value){
+    try { localStorage.setItem(key, value); } catch(e){ /* storage unavailable, ignore */ }
+  }
+
+  function applyTheme(theme){
+    if(theme === 'light'){
+      root.setAttribute('data-theme', 'light');
+      label.textContent = 'light';
+    } else {
+      root.removeAttribute('data-theme');
+      label.textContent = 'dark';
+    }
+  }
+
+  var saved = safeGet(STORAGE_KEY);
+  var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  applyTheme(saved || (prefersLight ? 'light' : 'dark'));
+
+  btn.addEventListener('click', function(){
+    var isLight = root.getAttribute('data-theme') === 'light';
+    var next = isLight ? 'dark' : 'light';
+    applyTheme(next);
+    safeSet(STORAGE_KEY, next);
+  });
+})();
+</script>
+
 </body>
 </html>
