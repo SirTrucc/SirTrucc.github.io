@@ -232,6 +232,7 @@
     background: var(--neon-dim);
     outline: none;
   }
+  .doc-actions{ display:flex; gap:8px; flex:none; }
   .doc-empty{ color: var(--dim); font-size: 14px; padding: 10px 4px; }
 
   .doc-filters{ display:flex; flex-wrap:wrap; gap:8px; margin: 4px 0 22px; }
@@ -495,21 +496,21 @@
       <div class="rule"></div>
 
       <!--
-        HƯỚNG DẪN THÊM TÀI LIỆU:
-        1. Tạo thư mục "documents" cùng cấp với index.html, có thể chia thư mục con
-           theo môn, ví dụ: documents/math/, documents/physics/, documents/chemistry/
-        2. Bỏ file PDF/Word/... của bạn vào thư mục tương ứng.
-        3. Mỗi môn học là một khối <div class="doc-category" data-category="...">.
-           - Đổi doc-category-title thành tên môn.
-           - Copy 1 khối <li class="doc-item">...</li> bên trong <ul class="doc-list">, đổi:
-             doc-title (tên tài liệu), doc-sub (mô tả ngắn), href (đường dẫn file).
-        4. Muốn thêm môn mới: copy nguyên khối <div class="doc-category">...</div>,
-           đổi data-category, rồi thêm 1 nút <button class="doc-filter">...</button>
-           tương ứng ở phần bộ lọc bên dưới (đổi data-filter cho khớp data-category).
-        5. Xóa các mục ví dụ nếu không cần nữa.
+        HOW TO ADD DOCUMENTS:
+        1. Create a "documents" folder next to index.html. You can split it into
+           subfolders by subject, e.g. documents/math/, documents/physics/, documents/chemistry/
+        2. Put your PDF/Word/... file into the matching subfolder.
+        3. Each subject is one <div class="doc-category" data-category="...">.
+           - Change doc-category-title to the subject name.
+           - Copy one <li class="doc-item">...</li> block inside <ul class="doc-list">, and update:
+             doc-title (document name), doc-sub (short description), href (file path).
+        4. To add a new subject: copy the whole <div class="doc-category">...</div> block,
+           change data-category, then add a matching <button class="doc-filter">...</button>
+           in the filter row below (match data-filter to data-category).
+        5. Delete the example items if you no longer need them.
       -->
 
-      <div class="doc-filters" role="group" aria-label="Lọc theo môn">
+      <div class="doc-filters" role="group" aria-label="Filter by subject">
         <button class="doc-filter" type="button" data-filter="all" aria-pressed="true">All</button>
         <button class="doc-filter" type="button" data-filter="math" aria-pressed="false">Mathematics</button>
         <button class="doc-filter" type="button" data-filter="physics" aria-pressed="false">Physics</button>
