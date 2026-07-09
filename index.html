@@ -17,7 +17,13 @@
     --dim: #8892A0;
     --neon: #3FE3FF;
     --neon-dim: #1C5C68;
-    --math-bg: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'> <g stroke='%233FE3FF' stroke-width='1' fill='none' opacity='0.07'> <!-- Bohr-style atom orbits --> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(20 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(90 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(160 120 120)' /> <circle cx='120' cy='120' r='4' fill='%233FE3FF' stroke='none' opacity='0.5' /> <!-- wave packet: envelope + carrier --> <path d='M300,470 C330,430 340,510 370,470 C400,430 410,510 440,470 C470,430 480,510 510,470' /> <path d='M290,470 Q400,410 510,470' stroke-dasharray='3 6' opacity='0.7' /> <!-- probability density curve (|psi|^2 hump) --> <path d='M40,560 C40,500 90,460 130,460 C170,460 180,500 180,560' /> <!-- energy level diagram --> <line x1='420' y1='90' x2='500' y2='90' /> <line x1='420' y1='140' x2='500' y2='140' /> <line x1='420' y1='190' x2='500' y2='190' /> <line x1='420' y1='240' x2='500' y2='240' /> </g> <g font-family='Georgia, Times, serif' font-style='italic' fill='%233FE3FF' opacity='0.11'> <text x='210' y='60' font-size='26'>iħ∂<tspan baseline-shift='sub' font-size='16'>t</tspan>ψ = Ĥψ</text> <text x='40' y='230' font-size='22'>Δx Δp ≥ ħ/2</text> <text x='260' y='150' font-size='30'>ψ(x,t)</text> <text x='430' y='320' font-size='28'>⟨ψ|φ⟩</text> <text x='60' y='330' font-size='24'>|ψ⟩</text> <text x='330' y='230' font-size='22'>∇²</text> <text x='330' y='400' font-size='26'>Ĥ = −ħ²/2m∇² + V</text> <text x='150' y='400' font-size='30'>Π</text> <text x='480' y='150' font-size='24'>n, l, m</text> <text x='60' y='500' font-size='22'>σ<tspan font-size='14' baseline-shift='sub'>x</tspan></text> <text x='260' y='560' font-size='24'>e<tspan font-size='16' baseline-shift='super'>iθ</tspan></text> <text x='400' y='500' font-size='26'>∫|ψ|²dx = 1</text> <text x='560' y='480' font-size='22'>ℏω</text> <text x='560' y='560' font-size='30'>Δ</text> <text x='20' y='620' font-size='22'>φ<tspan font-size='14' baseline-shift='sub'>n</tspan></text> </g> </svg>");
+    --math-bg: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'> <g stroke='%233FE3FF' stroke-width='1' fill='none' opacity='0.07'> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(20 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(90 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(160 120 120)' /> <circle cx='120' cy='120' r='4' fill='%233FE3FF' stroke='none' opacity='0.5' /> <path d='M300,470 C330,430 340,510 370,470 C400,430 410,510 440,470 C470,430 480,510 510,470' /> <path d='M290,470 Q400,410 510,470' stroke-dasharray='3 6' opacity='0.7' /> <path d='M40,560 C40,500 90,460 130,460 C170,460 180,500 180,560' /> <line x1='420' y1='90' x2='500' y2='90' /> <line x1='420' y1='140' x2='500' y2='140' /> <line x1='420' y1='190' x2='500' y2='190' /> <line x1='420' y1='240' x2='500' y2='240' /> </g> <g font-family='Georgia, Times, serif' font-style='italic' fill='%233FE3FF' opacity='0.11'> <text x='210' y='60' font-size='26'>iħ∂<tspan baseline-shift='sub' font-size='16'>t</tspan>ψ = Ĥψ</text> <text x='40' y='230' font-size='22'>Δx Δp ≥ ħ/2</text> <text x='260' y='150' font-size='30'>ψ(x,t)</text> <text x='430' y='320' font-size='28'>⟨ψ|φ⟩</text> <text x='60' y='330' font-size='24'>|ψ⟩</text> <text x='330' y='230' font-size='22'>∇²</text> <text x='330' y='400' font-size='26'>Ĥ = −ħ²/2m∇² + V</text> <text x='150' y='400' font-size='30'>Π</text> <text x='480' y='150' font-size='24'>n, l, m</text> <text x='60' y='500' font-size='22'>σ<tspan font-size='14' baseline-shift='sub'>x</tspan></text> <text x='260' y='560' font-size='24'>e<tspan font-size='16' baseline-shift='super'>iθ</tspan></text> <text x='400' y='500' font-size='26'>∫|ψ|²dx = 1</text> <text x='560' y='480' font-size='22'>ℏω</text> <text x='560' y='560' font-size='30'>Δ</text> <text x='20' y='620' font-size='22'>φ<tspan font-size='14' baseline-shift='sub'>n</tspan></text> </g> </svg>");
+
+    /* branch accent colors for mind map */
+    --c-quantum: #FF6FA5;
+    --c-pde: #8B7FE8;
+    --c-bec: #3FE3FF;
+    --c-dynamical: #7C90C4;
   }
 
   html[data-theme="light"]{
@@ -28,7 +34,13 @@
     --dim: #5B6472;
     --neon: #0088A3;
     --neon-dim: #A9DCE4;
-    --math-bg: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'> <g stroke='%230F5F73' stroke-width='1' fill='none' opacity='0.07'> <!-- Bohr-style atom orbits --> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(20 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(90 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(160 120 120)' /> <circle cx='120' cy='120' r='4' fill='%230F5F73' stroke='none' opacity='0.5' /> <!-- wave packet: envelope + carrier --> <path d='M300,470 C330,430 340,510 370,470 C400,430 410,510 440,470 C470,430 480,510 510,470' /> <path d='M290,470 Q400,410 510,470' stroke-dasharray='3 6' opacity='0.7' /> <!-- probability density curve (|psi|^2 hump) --> <path d='M40,560 C40,500 90,460 130,460 C170,460 180,500 180,560' /> <!-- energy level diagram --> <line x1='420' y1='90' x2='500' y2='90' /> <line x1='420' y1='140' x2='500' y2='140' /> <line x1='420' y1='190' x2='500' y2='190' /> <line x1='420' y1='240' x2='500' y2='240' /> </g> <g font-family='Georgia, Times, serif' font-style='italic' fill='%230F5F73' opacity='0.11'> <text x='210' y='60' font-size='26'>iħ∂<tspan baseline-shift='sub' font-size='16'>t</tspan>ψ = Ĥψ</text> <text x='40' y='230' font-size='22'>Δx Δp ≥ ħ/2</text> <text x='260' y='150' font-size='30'>ψ(x,t)</text> <text x='430' y='320' font-size='28'>⟨ψ|φ⟩</text> <text x='60' y='330' font-size='24'>|ψ⟩</text> <text x='330' y='230' font-size='22'>∇²</text> <text x='330' y='400' font-size='26'>Ĥ = −ħ²/2m∇² + V</text> <text x='150' y='400' font-size='30'>Π</text> <text x='480' y='150' font-size='24'>n, l, m</text> <text x='60' y='500' font-size='22'>σ<tspan font-size='14' baseline-shift='sub'>x</tspan></text> <text x='260' y='560' font-size='24'>e<tspan font-size='16' baseline-shift='super'>iθ</tspan></text> <text x='400' y='500' font-size='26'>∫|ψ|²dx = 1</text> <text x='560' y='480' font-size='22'>ℏω</text> <text x='560' y='560' font-size='30'>Δ</text> <text x='20' y='620' font-size='22'>φ<tspan font-size='14' baseline-shift='sub'>n</tspan></text> </g> </svg>");
+    --math-bg: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'> <g stroke='%230F5F73' stroke-width='1' fill='none' opacity='0.07'> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(20 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(90 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(160 120 120)' /> <circle cx='120' cy='120' r='4' fill='%230F5F73' stroke='none' opacity='0.5' /> <path d='M300,470 C330,430 340,510 370,470 C400,430 410,510 440,470 C470,430 480,510 510,470' /> <path d='M290,470 Q400,410 510,470' stroke-dasharray='3 6' opacity='0.7' /> <path d='M40,560 C40,500 90,460 130,460 C170,460 180,500 180,560' /> <line x1='420' y1='90' x2='500' y2='90' /> <line x1='420' y1='140' x2='500' y2='140' /> <line x1='420' y1='190' x2='500' y2='190' /> <line x1='420' y1='240' x2='500' y2='240' /> </g> <g font-family='Georgia, Times, serif' font-style='italic' fill='%230F5F73' opacity='0.11'> <text x='210' y='60' font-size='26'>iħ∂<tspan baseline-shift='sub' font-size='16'>t</tspan>ψ = Ĥψ</text> <text x='40' y='230' font-size='22'>Δx Δp ≥ ħ/2</text> <text x='260' y='150' font-size='30'>ψ(x,t)</text> <text x='430' y='320' font-size='28'>⟨ψ|φ⟩</text> <text x='60' y='330' font-size='24'>|ψ⟩</text> <text x='330' y='230' font-size='22'>∇²</text> <text x='330' y='400' font-size='26'>Ĥ = −ħ²/2m∇² + V</text> <text x='150' y='400' font-size='30'>Π</text> <text x='480' y='150' font-size='24'>n, l, m</text> <text x='60' y='500' font-size='22'>σ<tspan font-size='14' baseline-shift='sub'>x</tspan></text> <text x='260' y='560' font-size='24'>e<tspan font-size='16' baseline-shift='super'>iθ</tspan></text> <text x='400' y='500' font-size='26'>∫|ψ|²dx = 1</text> <text x='560' y='480' font-size='22'>ℏω</text> <text x='560' y='560' font-size='30'>Δ</text> <text x='20' y='620' font-size='22'>φ<tspan font-size='14' baseline-shift='sub'>n</tspan></text> </g> </svg>");
+
+    /* branch accent colors for mind map */
+    --c-quantum: #C43E77;
+    --c-pde: #5B4CC4;
+    --c-bec: #0088A3;
+    --c-dynamical: #4A5C93;
   }
 
   *{ box-sizing: border-box; }
@@ -363,6 +375,98 @@
   footer a{ color: var(--dim); }
   footer a:hover{ color: var(--neon); }
 
+  /* ==========================================================================
+     MINDMAP EMBED STYLES
+     ========================================================================== */
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+    margin-top: 20px;
+  }
+  .legend-chip{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--text);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: border-color .15s ease, opacity .2s ease;
+  }
+  .legend-chip .dot{
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .legend-chip:hover, .legend-chip:focus-visible{ border-color: var(--dim); outline: none; }
+  .legend-chip.is-active{ border-color: currentColor; }
+
+  .reset-btn{
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--neon);
+    background: transparent;
+    border: 1px solid var(--neon-dim);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+  }
+  .reset-btn:hover, .reset-btn:focus-visible{ background: var(--neon-dim); outline: none; }
+  .reset-btn[hidden]{ display:none; }
+
+  .mindmap-scroll{
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    margin-top: 15px;
+  }
+  .mindmap-scroll svg{
+    display:block;
+    width: 100%;
+    min-width: 900px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .scroll-hint{
+    display:none;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--dim);
+    margin: 8px 2px 0;
+  }
+  @media (max-width: 640px){
+    .scroll-hint{ display:block; }
+  }
+
+  .branch-group{ transition: opacity .25s ease; cursor: pointer; }
+  .branch-group .connector{ transition: opacity .2s ease, stroke-width .2s ease; }
+  .branch-group .leaf-connector{ transition: opacity .2s ease, stroke-width .2s ease; }
+  .branch-group:hover .connector{ stroke-width: 3; }
+  .branch-group:hover .branch-label{ fill: var(--text); }
+
+  .branch-group.mm-dim{ opacity: .15; }
+  .branch-group.mm-active{ opacity: 1; }
+
+  .leaf-item{ transition: opacity .2s ease; }
+  .leaf-item:hover .leaf-connector{ opacity: .9 !important; stroke-width: 2; }
+  .leaf-item:hover .leaf-label{ fill: var(--text); }
+
+  .center-node{ cursor: pointer; }
+  .center-node text{ font-family: "IBM Plex Mono", monospace; fill: var(--text); }
+
+  .branch-label{ font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+  .leaf-label{ font-family: "IBM Plex Sans", Arial, sans-serif; fill: var(--dim); }
+
   @media (max-width: 560px){
     header{ flex-direction: column; }
     table, thead, tbody, th, td, tr{ display:block; }
@@ -436,6 +540,18 @@
       <span class="chip">Dynamical Systems</span>
     </div>
     <p class="dim" style="margin-top:14px;">My interests lie in mathematical quantum mechanics, nonlinear PDEs, and dynamical systems. Working with Dr. Nguyen Dinh Thi, I study Bose–Einstein condensates and related quantum many-body models, especially in rotating, self-gravitating, and semi-relativistic settings. I enjoy exploring how elegant mathematical ideas help explain rich and fascinating physical phenomena.</p>
+
+    <div id="research-mindmap">
+      <div class="legend" id="legend"></div>
+      <div class="mindmap-scroll">
+        <svg id="mindmap-svg" viewBox="-780 -650 1560 1300" role="img" aria-label="Mind map of research interests branching from Mathematical Physics, Astrophysics, and Bose-Einstein Condensates"></svg>
+      </div>
+      <p class="scroll-hint">Scroll horizontally to see the full map.</p>
+      <div style="margin-top:16px; display:flex; align-items:center; gap:14px;">
+        <button class="reset-btn" id="resetBtn" type="button" hidden>Reset view</button>
+        <p style="color:var(--dim); font-size:13px; margin:0;">Click a branch or legend chip to trace a path. Click again to reset.</p>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -500,27 +616,10 @@
   </p>
   </section>
 
-  </div><!-- /#tab-overview -->
-
-  <div class="tab-panel" id="tab-documents" role="tabpanel" aria-labelledby="tabBtn-documents" hidden>
+  </div><div class="tab-panel" id="tab-documents" role="tabpanel" aria-labelledby="tabBtn-documents" hidden>
     <section style="padding-top:24px;">
       <h2>Documents</h2>
       <div class="rule"></div>
-
-      <!--
-        HOW TO ADD DOCUMENTS:
-        1. Create a "documents" folder next to index.html. You can split it into
-           subfolders by subject, e.g. documents/math/, documents/physics/, documents/chemistry/
-        2. Put your PDF/Word/... file into the matching subfolder.
-        3. Each subject is one <div class="doc-category" data-category="...">.
-           - Change doc-category-title to the subject name.
-           - Copy one <li class="doc-item">...</li> block inside <ul class="doc-list">, and update:
-             doc-title (document name), doc-sub (short description), href (file path).
-        4. To add a new subject: copy the whole <div class="doc-category">...</div> block,
-           change data-category, then add a matching <button class="doc-filter">...</button>
-           in the filter row below (match data-filter to data-category).
-        5. Delete the example items if you no longer need them.
-      -->
 
       <div class="doc-filters" role="group" aria-label="Filter by subject">
         <button class="doc-filter" type="button" data-filter="all" aria-pressed="true">All</button>
@@ -566,17 +665,13 @@
         <p class="doc-empty">There are no documents available.</p>
       </div>
     </section>
-  </div><!-- /#tab-documents -->
-
-  <div class="tab-panel" id="tab-publications" role="tabpanel" aria-labelledby="tabBtn-publications" hidden>
+  </div><div class="tab-panel" id="tab-publications" role="tabpanel" aria-labelledby="tabBtn-publications" hidden>
     <section style="padding-top:24px;">
       <h2>Publications</h2>
       <div class="rule"></div>
       <p class="doc-empty">There are no publications — Research in progress...</p>
     </section>
-  </div><!-- /#tab-publications -->
-
-  <footer>
+  </div><footer>
     <span>© 2026 Tran Ly Kien Truc</span>
     <span>Hibernating...</span>
   </footer>
@@ -666,5 +761,204 @@
 })();
 </script>
 
+<script>
+(function(){
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.getElementById('mindmap-svg');
+  var legend = document.getElementById('legend');
+  var resetBtn = document.getElementById('resetBtn');
+
+  if(!svg || !legend) return;
+
+  var R_CENTER = 135;
+  var R1 = 280;   // branch node radius
+  var R2 = 480;   // leaf node radius
+  var ANGLES = [-45, 45, 135, 225];
+
+  var DATA = [
+    {
+      name: 'Mathematical Quantum Physics',
+      color: 'var(--c-quantum)',
+      leaves: ['Spectral Theory', 'Hartree Theory', 'Hartree\u2013Fock\u2013Bogoliubov Theory', 'Local Density Functional Theory', 'Anyons', 'Fermions', 'Bosons']
+    },
+    {
+      name: 'Nonlinear PDEs',
+      color: 'var(--c-pde)',
+      leaves: ['Functional Analysis', 'Nonlinear Analysis', 'Fourier Analysis', 'Convex Analysis', 'Real Analysis', 'Calculus of Variations', 'Functional Inequality', 'Ginzburg\u2013Landau Theory', 'Nonlinear Schrödinger Theory', 'Chern\u2013Simons\u2013Schr\u00f6dinger Theory']
+    },
+    {
+      name: 'Bose\u2013Einstein Condensation',
+      color: 'var(--c-bec)',
+      leaves: ['Gross\u2013Pitaevskii Theory', 'Thomas\u2013Fermi Theory', 'Average-Field\u2013Pauli Theory', 'Superfluidity', 'Quantized Vortices', 'Bose\u2013Einstein Condensate']
+    },
+    {
+      name: 'Dynamical Systems',
+      color: 'var(--c-dynamical)',
+      leaves: ['Superconductivity', 'Gravitational Theory', 'Thermodynamic Limit']
+    }
+  ];
+
+  function polar(r, deg){
+    var rad = deg * Math.PI / 180;
+    return { x: r * Math.cos(rad), y: r * Math.sin(rad) };
+  }
+
+  function el(tag, attrs){
+    var e = document.createElementNS(NS, tag);
+    for(var k in attrs){ e.setAttribute(k, attrs[k]); }
+    return e;
+  }
+
+  function buildLegend(){
+    DATA.forEach(function(b){
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'legend-chip';
+      chip.dataset.branch = b.name;
+      chip.style.color = b.color;
+      var dot = document.createElement('span');
+      dot.className = 'dot';
+      dot.style.background = b.color;
+      chip.appendChild(dot);
+      chip.appendChild(document.createTextNode(b.name));
+      chip.addEventListener('click', function(){ focusBranch(b.name); });
+      legend.appendChild(chip);
+    });
+  }
+
+  function render(){
+    // center node
+    var centerGroup = el('g', { class: 'center-node' });
+    centerGroup.appendChild(el('circle', { cx:0, cy:0, r:R_CENTER, fill:'none', stroke:'var(--neon)', 'stroke-width':1.5, opacity:0.8 }));
+    var t1 = el('text', { x:0, y:-26, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
+    t1.textContent = 'Mathematical Physics';
+    var t2 = el('text', { x:0, y:0, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
+    t2.textContent = 'Astrophysics';
+    var t3 = el('text', { x:0, y:26, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
+    t3.textContent = 'Bose\u2013Einstein Condensates';
+    centerGroup.appendChild(t1);
+    centerGroup.appendChild(t2);
+    centerGroup.appendChild(t3);
+    centerGroup.addEventListener('click', resetFocus);
+    svg.appendChild(centerGroup);
+
+    DATA.forEach(function(b, i){
+      var angle = ANGLES[i];
+      var branchPos = polar(R1, angle);
+      var ctrlAngle = angle + (i % 2 === 0 ? 8 : -8);
+      var ctrl = polar(R1 * 0.5, ctrlAngle);
+
+      var g = el('g', { class: 'branch-group' });
+      g.dataset.branch = b.name;
+
+      var connector = el('path', {
+        class: 'connector',
+        d: 'M0,0 Q' + ctrl.x.toFixed(1) + ',' + ctrl.y.toFixed(1) + ' ' + branchPos.x.toFixed(1) + ',' + branchPos.y.toFixed(1),
+        fill: 'none', stroke: b.color, 'stroke-width': 2, opacity: 0.6
+      });
+      g.appendChild(connector);
+
+      var node = el('circle', { cx: branchPos.x.toFixed(1), cy: branchPos.y.toFixed(1), r: 9, fill: b.color });
+      g.appendChild(node);
+
+      var anchor = Math.cos(angle * Math.PI / 180) >= -0.05 ? 'start' : 'end';
+      var labelPos = polar(R1 + 22, angle);
+      var labelText = el('text', {
+        class: 'branch-label',
+        x: labelPos.x.toFixed(1), y: labelPos.y.toFixed(1),
+        'text-anchor': anchor, 'dominant-baseline': 'middle',
+        'font-size': 16.5, fill: b.color
+      });
+      labelText.textContent = b.name;
+      g.appendChild(labelText);
+
+      var count = b.leaves.length;
+      var fan = Math.min(70, count * 10);
+      b.leaves.forEach(function(leaf, j){
+        var leafAngle = count === 1 ? angle : (angle - fan / 2 + (fan / (count - 1)) * j);
+        var leafPos = polar(R2, leafAngle);
+        var blendAngle = angle * 0.3 + leafAngle * 0.7;
+        var leafCtrl = polar((R1 + R2) / 2 * 0.98, blendAngle);
+
+        var leafGroup = el('g', { class: 'leaf-item' });
+
+        var leafConnector = el('path', {
+          class: 'leaf-connector',
+          d: 'M' + branchPos.x.toFixed(1) + ',' + branchPos.y.toFixed(1) + ' Q' + leafCtrl.x.toFixed(1) + ',' + leafCtrl.y.toFixed(1) + ' ' + leafPos.x.toFixed(1) + ',' + leafPos.y.toFixed(1),
+          fill: 'none', stroke: b.color, 'stroke-width': 1.2, opacity: 0.4
+        });
+        leafGroup.appendChild(leafConnector);
+
+        var leafDot = el('circle', { cx: leafPos.x.toFixed(1), cy: leafPos.y.toFixed(1), r: 4.5, fill: b.color, opacity: 0.9 });
+        leafGroup.appendChild(leafDot);
+
+        var leafAnchor = Math.cos(leafAngle * Math.PI / 180) >= -0.02 ? 'start' : 'end';
+        var leafLabelPos = polar(R2 + 12, leafAngle);
+        var leafText = el('text', {
+          class: 'leaf-label',
+          x: leafLabelPos.x.toFixed(1), y: leafLabelPos.y.toFixed(1),
+          'text-anchor': leafAnchor, 'dominant-baseline': 'middle',
+          'font-size': 13.5
+        });
+        leafText.textContent = leaf;
+        var titleEl = el('title', {});
+        titleEl.textContent = leaf;
+        leafText.appendChild(titleEl);
+        leafGroup.appendChild(leafText);
+
+        g.appendChild(leafGroup);
+      });
+
+      g.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        focusBranch(b.name);
+      });
+
+      svg.appendChild(g);
+    });
+  }
+
+  var currentFocus = null;
+
+  function focusBranch(name){
+    var groups = svg.querySelectorAll('.branch-group');
+    var chips = legend.querySelectorAll('.legend-chip');
+
+    if(currentFocus === name){
+      resetFocus();
+      return;
+    }
+
+    currentFocus = name;
+    groups.forEach(function(g){
+      if(g.dataset.branch === name){
+        g.classList.add('mm-active');
+        g.classList.remove('mm-dim');
+      } else {
+        g.classList.add('mm-dim');
+        g.classList.remove('mm-active');
+      }
+    });
+    chips.forEach(function(c){
+      c.classList.toggle('is-active', c.dataset.branch === name);
+    });
+    if(resetBtn) resetBtn.hidden = false;
+  }
+
+  function resetFocus(){
+    var groups = svg.querySelectorAll('.branch-group');
+    var chips = legend.querySelectorAll('.legend-chip');
+    groups.forEach(function(g){ g.classList.remove('mm-active', 'mm-dim'); });
+    chips.forEach(function(c){ c.classList.remove('is-active'); });
+    currentFocus = null;
+    if(resetBtn) resetBtn.hidden = true;
+  }
+
+  if(resetBtn) resetBtn.addEventListener('click', resetFocus);
+
+  buildLegend();
+  render();
+})();
+</script>
 </body>
 </html>
