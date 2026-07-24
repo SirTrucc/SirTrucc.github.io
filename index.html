@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tran Ly Kien Truc</title>
-<meta name="description" content="Welcome to Tran Ly Kien Truc's website, a physics undergraduate student pursuing Mathematical Physics, PDEs and etc.">
+<meta name="description" content="Welcome to Tran Ly Kien Truc's website, a physics undergraduate student pursuing Theoretical Physics, PDEs and etc.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -494,7 +494,7 @@
     <div class="id">
       <p class="prompt">~/undergrad/math-phys $</p>
       <h1>Tran Ly Kien Truc<span class="cursor"></span></h1>
-      <p class="role">Physics Undergraduate · Mathematical Physics &amp; Quantum Theory</p>
+      <p class="role">Physics Undergraduate · Theoretical Physics &amp; Quantum Theory</p>
       <p class="meta">Ho Chi Minh City, Vietnam</p>
       <p class="meta">VNU-HCM, University of Science</p>
       <div class="links">
@@ -518,7 +518,7 @@
     <h2>Education</h2>
     <div class="rule"></div>
     <table>
-      <thead><tr><th style="width:110px;">Year</th><th>Degree / Track</th><th>Institution</th><th>Advisor/Mentor</th></tr></thead>
+      <thead><tr><th style="width:110px;">Year</th><th>Degree / Track</th><th>Institution</th><th>Advisor / Mentor</th></tr></thead>
       <tbody>
         <tr>
           <td class="when">2023 – Present</td>
@@ -534,17 +534,17 @@
     <h2>Research Interests</h2>
     <div class="rule"></div>
     <div class="chips">
-      <span class="chip">Mathematical Quantum Physics</span>
+      <span class="chip">Quantum Many-Body Physics</span>
       <span class="chip">Nonlinear PDEs</span>
       <span class="chip">Bose–Einstein Condensation</span>
-      <span class="chip">Dynamical Systems</span>
+      <span class="chip">Mathematical Methods</span>
     </div>
     <p class="dim" style="margin-top:14px;">My interests lie in mathematical quantum mechanics, nonlinear PDEs, and dynamical systems. Working with Dr. Nguyen Dinh Thi, I study Bose–Einstein condensates and related quantum many-body models, especially in rotating, self-gravitating, and semi-relativistic settings. I enjoy exploring how elegant mathematical ideas help explain rich and fascinating physical phenomena.</p>
 
     <div id="research-mindmap">
       <div class="legend" id="legend"></div>
       <div class="mindmap-scroll">
-        <svg id="mindmap-svg" viewBox="-780 -650 1560 1300" role="img" aria-label="Mind map of research interests branching from Mathematical Physics, Astrophysics, and Bose-Einstein Condensates"></svg>
+        <svg id="mindmap-svg" viewBox="-780 -650 1560 1300" role="img" aria-label="Mind map of research interests branching from Theoretical Physics, Quantum Many-Body Physics, and Bose-Einstein Condensates"></svg>
       </div>
       <p class="scroll-hint">Scroll horizontally to see the full map.</p>
       <div style="margin-top:16px; display:flex; align-items:center; gap:14px;">
@@ -568,7 +568,7 @@
       <tbody>
         <tr>
           <td class="when">08.2026</td>
-          <td>Summer School in Mathematical Physics by <a href="https://viasm.edu.vn/hdkh/school-math-physics2026-HCM">VIASM</a></td>
+          <td>Summer School in Theoretical Physics by <a href="https://viasm.edu.vn/hdkh/school-math-physics2026-HCM">VIASM</a></td>
           <td class="where">Participant</td>
         </tr>
 
@@ -777,7 +777,7 @@
 
   var DATA = [
     {
-      name: 'Mathematical Quantum Physics',
+      name: 'Quantum Many-Body Physics',
       color: 'var(--c-quantum)',
       leaves: ['Spectral Theory', 'Hartree Theory', 'Hartree\u2013Fock\u2013Bogoliubov Theory', 'Local Density Functional Theory', 'Anyons', 'Fermions', 'Bosons']
     },
@@ -792,9 +792,9 @@
       leaves: ['Gross\u2013Pitaevskii Theory', 'Thomas\u2013Fermi Theory', 'Average-Field\u2013Pauli Theory', 'Superfluidity', 'Quantized Vortices', 'Bose\u2013Einstein Condensate']
     },
     {
-      name: 'Dynamical Systems',
+      name: 'Mathematical Methods',
       color: 'var(--c-dynamical)',
-      leaves: ['Superconductivity', 'Gravitational Theory', 'Thermodynamic Limit']
+      leaves: ['Spectral Theory', 'Operator Theory', 'Dynamical Systems', 'Numerical Analysis', 'Scientific Computing', 'Variational Methods']
     }
   ];
 
@@ -831,9 +831,9 @@
     var centerGroup = el('g', { class: 'center-node' });
     centerGroup.appendChild(el('circle', { cx:0, cy:0, r:R_CENTER, fill:'none', stroke:'var(--neon)', 'stroke-width':1.5, opacity:0.8 }));
     var t1 = el('text', { x:0, y:-26, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
-    t1.textContent = 'Mathematical Physics';
+    t1.textContent = 'Theoretical Physics';
     var t2 = el('text', { x:0, y:0, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
-    t2.textContent = 'Astrophysics';
+    t2.textContent = 'Quantum Many-Body Physics';
     var t3 = el('text', { x:0, y:26, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
     t3.textContent = 'Bose\u2013Einstein Condensates';
     centerGroup.appendChild(t1);
