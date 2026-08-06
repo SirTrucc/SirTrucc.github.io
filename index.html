@@ -24,6 +24,7 @@
     --c-pde: #8B7FE8;
     --c-bec: #3FE3FF;
     --c-dynamical: #7C90C4;
+    --c-particles: #FFD400;
   }
 
   html[data-theme="light"]{
@@ -41,6 +42,7 @@
     --c-pde: #5B4CC4;
     --c-bec: #0088A3;
     --c-dynamical: #4A5C93;
+    --c-particles: #B8860B;
   }
 
   *{ box-sizing: border-box; }
@@ -726,7 +728,7 @@
             </span>
             <div>
               <div class="social-title">YouTube Channel</div>
-              <div class="social-sub">My other activities outside of research usually active here. I play games and do other fun stuff in my free time!</div>
+              <div class="social-sub">My outside activities usually happens here, I do random things outside of my research!</div>
             </div>
           </div>
           <a class="social-link" href="https://www.youtube.com/@vinny.s" target="_blank" rel="noopener">Visit</a>
@@ -836,13 +838,13 @@
   var R_CENTER = 135;
   var R1 = 280;   // branch node radius
   var R2 = 480;   // leaf node radius
-  var ANGLES = [-45, 45, 135, 225];
+  var ANGLES = [-45, 45, 135, 225, 90];
 
   var DATA = [
     {
       name: 'Quantum Many-Body Physics',
       color: 'var(--c-quantum)',
-      leaves: ['Mathematical Quantum Mechanics', 'Hartree Theory', 'Hartree\u2013Fock\u2013Bogoliubov Theory', 'Local Density Functional Theory', 'Anyons', 'Fermions', 'Bosons']
+      leaves: ['Mathematical Quantum Mechanics', 'Hartree Theory', 'Hartree\u2013Fock\u2013Bogoliubov Theory', 'Local Density Functional Theory']
     },
     {
       name: 'Nonlinear PDEs',
@@ -858,6 +860,12 @@
       name: 'Mathematical Methods',
       color: 'var(--c-dynamical)',
       leaves: ['Spectral Theory', 'Operator Theory', 'Dynamical Systems', 'Numerical Analysis', 'Scientific Computing', 'Variational Methods', 'Thomas\u2013Fermi Approximation', 'Semi-Classical Analysis', 'Semi-Relativistic Models']
+    },
+    {
+      name: 'Fundamental Particles',
+      color: 'var(--c-particles)',
+      small: true,
+      leaves: ['Bosons', 'Fermions', 'Anyons']
     }
   ];
 
@@ -907,9 +915,13 @@
 
     DATA.forEach(function(b, i){
       var angle = ANGLES[i];
-      var branchPos = polar(R1, angle);
+      var scale = b.small ? 0.5 : 1;
+      var r1 = R1 * scale;
+      var r2 = R2 * scale;
+
+      var branchPos = polar(r1, angle);
       var ctrlAngle = angle + (i % 2 === 0 ? 8 : -8);
-      var ctrl = polar(R1 * 0.5, ctrlAngle);
+      var ctrl = polar(r1 * 0.5, ctrlAngle);
 
       var g = el('g', { class: 'branch-group' });
       g.dataset.branch = b.name;
@@ -917,20 +929,20 @@
       var connector = el('path', {
         class: 'connector',
         d: 'M0,0 Q' + ctrl.x.toFixed(1) + ',' + ctrl.y.toFixed(1) + ' ' + branchPos.x.toFixed(1) + ',' + branchPos.y.toFixed(1),
-        fill: 'none', stroke: b.color, 'stroke-width': 2, opacity: 0.6
+        fill: 'none', stroke: b.color, 'stroke-width': b.small ? 1.5 : 2, opacity: 0.6
       });
       g.appendChild(connector);
 
-      var node = el('circle', { cx: branchPos.x.toFixed(1), cy: branchPos.y.toFixed(1), r: 9, fill: b.color });
+      var node = el('circle', { cx: branchPos.x.toFixed(1), cy: branchPos.y.toFixed(1), r: b.small ? 6 : 9, fill: b.color });
       g.appendChild(node);
 
       var anchor = Math.cos(angle * Math.PI / 180) >= -0.05 ? 'start' : 'end';
-      var labelPos = polar(R1 + 22, angle);
+      var labelPos = polar(r1 + (b.small ? 14 : 22), angle);
       var labelText = el('text', {
         class: 'branch-label',
         x: labelPos.x.toFixed(1), y: labelPos.y.toFixed(1),
         'text-anchor': anchor, 'dominant-baseline': 'middle',
-        'font-size': 16.5, fill: b.color
+        'font-size': b.small ? 12 : 16.5, fill: b.color
       });
       labelText.textContent = b.name;
       g.appendChild(labelText);
@@ -939,29 +951,29 @@
       var fan = Math.min(70, count * 10);
       b.leaves.forEach(function(leaf, j){
         var leafAngle = count === 1 ? angle : (angle - fan / 2 + (fan / (count - 1)) * j);
-        var leafPos = polar(R2, leafAngle);
+        var leafPos = polar(r2, leafAngle);
         var blendAngle = angle * 0.3 + leafAngle * 0.7;
-        var leafCtrl = polar((R1 + R2) / 2 * 0.98, blendAngle);
+        var leafCtrl = polar((r1 + r2) / 2 * 0.98, blendAngle);
 
         var leafGroup = el('g', { class: 'leaf-item' });
 
         var leafConnector = el('path', {
           class: 'leaf-connector',
           d: 'M' + branchPos.x.toFixed(1) + ',' + branchPos.y.toFixed(1) + ' Q' + leafCtrl.x.toFixed(1) + ',' + leafCtrl.y.toFixed(1) + ' ' + leafPos.x.toFixed(1) + ',' + leafPos.y.toFixed(1),
-          fill: 'none', stroke: b.color, 'stroke-width': 1.2, opacity: 0.4
+          fill: 'none', stroke: b.color, 'stroke-width': b.small ? 1 : 1.2, opacity: 0.4
         });
         leafGroup.appendChild(leafConnector);
 
-        var leafDot = el('circle', { cx: leafPos.x.toFixed(1), cy: leafPos.y.toFixed(1), r: 4.5, fill: b.color, opacity: 0.9 });
+        var leafDot = el('circle', { cx: leafPos.x.toFixed(1), cy: leafPos.y.toFixed(1), r: b.small ? 3 : 4.5, fill: b.color, opacity: 0.9 });
         leafGroup.appendChild(leafDot);
 
         var leafAnchor = Math.cos(leafAngle * Math.PI / 180) >= -0.02 ? 'start' : 'end';
-        var leafLabelPos = polar(R2 + 12, leafAngle);
+        var leafLabelPos = polar(r2 + (b.small ? 8 : 12), leafAngle);
         var leafText = el('text', {
           class: 'leaf-label',
           x: leafLabelPos.x.toFixed(1), y: leafLabelPos.y.toFixed(1),
           'text-anchor': leafAnchor, 'dominant-baseline': 'middle',
-          'font-size': 13.5
+          'font-size': b.small ? 10.5 : 13.5
         });
         leafText.textContent = leaf;
         var titleEl = el('title', {});
