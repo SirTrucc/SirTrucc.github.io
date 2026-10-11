@@ -1,1210 +1,2606 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Tran Ly Kien Truc</title>
+
 <meta name="description" content="Welcome to Tran Ly Kien Truc's website, a physics undergraduate student pursuing Mathematical Physics, PDEs and etc.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
+
   :root{
+
     --bg: #0A0C0F;
+
     --panel: #12151A;
+
     --line: #232A31;
+
     --text: #E9EEF3;
+
     --dim: #8892A0;
+
     --neon: #3FE3FF;
+
     --neon-dim: #1C5C68;
+
     --math-bg: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'> <g stroke='%233FE3FF' stroke-width='1' fill='none' opacity='0.07'> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(20 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(90 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(160 120 120)' /> <circle cx='120' cy='120' r='4' fill='%233FE3FF' stroke='none' opacity='0.5' /> <path d='M300,470 C330,430 340,510 370,470 C400,430 410,510 440,470 C470,430 480,510 510,470' /> <path d='M290,470 Q400,410 510,470' stroke-dasharray='3 6' opacity='0.7' /> <path d='M40,560 C40,500 90,460 130,460 C170,460 180,500 180,560' /> <line x1='420' y1='90' x2='500' y2='90' /> <line x1='420' y1='140' x2='500' y2='140' /> <line x1='420' y1='190' x2='500' y2='190' /> <line x1='420' y1='240' x2='500' y2='240' /> </g> <g font-family='Georgia, Times, serif' font-style='italic' fill='%233FE3FF' opacity='0.11'> <text x='210' y='60' font-size='26'>iħ∂<tspan baseline-shift='sub' font-size='16'>t</tspan>ψ = Ĥψ</text> <text x='40' y='230' font-size='22'>Δx Δp ≥ ħ/2</text> <text x='260' y='150' font-size='30'>ψ(x,t)</text> <text x='430' y='320' font-size='28'>⟨ψ|φ⟩</text> <text x='60' y='330' font-size='24'>|ψ⟩</text> <text x='330' y='230' font-size='22'>∇²</text> <text x='330' y='400' font-size='26'>Ĥ = −ħ²/2m∇² + V</text> <text x='150' y='400' font-size='30'>Π</text> <text x='480' y='150' font-size='24'>n, l, m</text> <text x='60' y='500' font-size='22'>σ<tspan font-size='14' baseline-shift='sub'>x</tspan></text> <text x='260' y='560' font-size='24'>e<tspan font-size='16' baseline-shift='super'>iθ</tspan></text> <text x='400' y='500' font-size='26'>∫|ψ|²dx = 1</text> <text x='560' y='480' font-size='22'>ℏω</text> <text x='560' y='560' font-size='30'>Δ</text> <text x='20' y='620' font-size='22'>φ<tspan font-size='14' baseline-shift='sub'>n</tspan></text> </g> </svg>");
 
+
+
     /* branch accent colors for mind map */
+
     --c-quantum: #FF6FA5;
+
     --c-pde: #8B7FE8;
+
     --c-bec: #3FE3FF;
+
     --c-dynamical: #7C90C4;
+
     --c-particles: #FFD400;
+
   }
+
+
 
   html[data-theme="light"]{
+
     --bg: #F5F7FA;
+
     --panel: #FFFFFF;
+
     --line: #DCE2E8;
+
     --text: #131820;
+
     --dim: #5B6472;
+
     --neon: #0088A3;
+
     --neon-dim: #A9DCE4;
+
     --math-bg: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'> <g stroke='%230F5F73' stroke-width='1' fill='none' opacity='0.07'> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(20 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(90 120 120)' /> <ellipse cx='120' cy='120' rx='70' ry='28' transform='rotate(160 120 120)' /> <circle cx='120' cy='120' r='4' fill='%230F5F73' stroke='none' opacity='0.5' /> <path d='M300,470 C330,430 340,510 370,470 C400,430 410,510 440,470 C470,430 480,510 510,470' /> <path d='M290,470 Q400,410 510,470' stroke-dasharray='3 6' opacity='0.7' /> <path d='M40,560 C40,500 90,460 130,460 C170,460 180,500 180,560' /> <line x1='420' y1='90' x2='500' y2='90' /> <line x1='420' y1='140' x2='500' y2='140' /> <line x1='420' y1='190' x2='500' y2='190' /> <line x1='420' y1='240' x2='500' y2='240' /> </g> <g font-family='Georgia, Times, serif' font-style='italic' fill='%230F5F73' opacity='0.11'> <text x='210' y='60' font-size='26'>iħ∂<tspan baseline-shift='sub' font-size='16'>t</tspan>ψ = Ĥψ</text> <text x='40' y='230' font-size='22'>Δx Δp ≥ ħ/2</text> <text x='260' y='150' font-size='30'>ψ(x,t)</text> <text x='430' y='320' font-size='28'>⟨ψ|φ⟩</text> <text x='60' y='330' font-size='24'>|ψ⟩</text> <text x='330' y='230' font-size='22'>∇²</text> <text x='330' y='400' font-size='26'>Ĥ = −ħ²/2m∇² + V</text> <text x='150' y='400' font-size='30'>Π</text> <text x='480' y='150' font-size='24'>n, l, m</text> <text x='60' y='500' font-size='22'>σ<tspan font-size='14' baseline-shift='sub'>x</tspan></text> <text x='260' y='560' font-size='24'>e<tspan font-size='16' baseline-shift='super'>iθ</tspan></text> <text x='400' y='500' font-size='26'>∫|ψ|²dx = 1</text> <text x='560' y='480' font-size='22'>ℏω</text> <text x='560' y='560' font-size='30'>Δ</text> <text x='20' y='620' font-size='22'>φ<tspan font-size='14' baseline-shift='sub'>n</tspan></text> </g> </svg>");
 
+
+
     /* branch accent colors for mind map */
+
     --c-quantum: #C43E77;
+
     --c-pde: #5B4CC4;
+
     --c-bec: #0088A3;
+
     --c-dynamical: #4A5C93;
+
     --c-particles: #B8860B;
+
   }
+
+
 
   *{ box-sizing: border-box; }
 
+
+
   html{
+
     color-scheme: dark;
+
   }
+
   html[data-theme="light"]{
+
     color-scheme: light;
+
   }
+
+
 
   body{
+
     margin:0;
+
     background: var(--bg);
+
     color: var(--text);
+
     font-family: "IBM Plex Sans", Arial, sans-serif;
+
     font-size: 16px;
+
     line-height: 1.6;
+
     transition: background-color .2s ease, color .2s ease;
+
     position: relative;
+
   }
+
+
 
   /* Full mathematical quantum mechanics background: equations, wavefunctions, orbits */
+
   body::before{
+
     content:"";
+
     position: fixed;
+
     inset: 0;
+
     z-index: -1;
+
     pointer-events: none;
+
     background-image: var(--math-bg);
+
     background-repeat: repeat;
+
     background-size: 640px 640px;
+
     transition: opacity .2s ease;
+
   }
+
+
 
   .wrap{
+
     max-width: 880px;
+
     margin: 0 auto;
+
     padding: 0 24px 80px;
+
   }
+
+
 
   header{
+
     padding-top: 56px;
+
     padding-bottom: 32px;
+
     display:flex;
+
     gap: 28px;
+
     align-items:flex-start;
+
     border-bottom: 1px solid var(--line);
+
     position: relative;
+
   }
+
   header img{
+
     width: 120px; height: 120px;
+
     border-radius: 4px;
+
     object-fit: cover;
+
     border: 1px solid var(--line);
+
     filter: grayscale(15%);
+
   }
+
   .id .prompt{
+
     font-family:"IBM Plex Mono", monospace;
+
     color: var(--neon-dim);
+
     font-size: 13px;
+
     margin: 0 0 6px;
+
   }
+
   h1{
+
     font-family:"IBM Plex Mono", monospace;
+
     font-weight: 600;
+
     font-size: 30px;
+
     margin: 0 0 4px;
+
     color: var(--text);
+
   }
+
   h1 .cursor{
+
     display:inline-block;
+
     width: 10px; height: 24px;
+
     background: var(--neon);
+
     margin-left: 6px;
+
     vertical-align: middle;
+
     animation: blink 1.1s steps(1) infinite;
+
   }
+
   @keyframes blink{ 50%{ opacity:0; } }
+
   @media (prefers-reduced-motion: reduce){ h1 .cursor{ animation:none; } }
 
+
+
   .role{
+
     color: var(--neon);
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 14.5px;
+
     margin: 0 0 14px;
+
   }
+
   .meta{ color: var(--dim); font-size: 14px; margin: 0 0 4px; }
+
   .meta a{ color: var(--dim); }
 
+
+
   .links{
+
     margin-top: 14px;
+
     display:flex; flex-wrap:wrap; gap: 14px;
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 13px;
+
   }
+
   .links a{
+
     color: var(--text);
+
     text-decoration:none;
+
     border-bottom: 1px solid var(--neon-dim);
+
     padding-bottom: 1px;
+
   }
+
   .links a:hover, .links a:focus-visible{
+
     color: var(--neon);
+
     border-bottom-color: var(--neon);
+
   }
+
+
 
   /* Theme toggle button */
+
   .theme-toggle{
+
     position: absolute;
+
     top: 56px;
+
     right: 0;
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 12px;
+
     color: var(--dim);
+
     background: var(--panel);
+
     border: 1px solid var(--line);
+
     border-radius: 999px;
+
     padding: 6px 12px 6px 10px;
+
     cursor: pointer;
+
     transition: border-color .15s ease, color .15s ease;
+
   }
+
   .theme-toggle:hover, .theme-toggle:focus-visible{
+
     color: var(--neon);
+
     border-color: var(--neon-dim);
+
     outline: none;
+
   }
+
   .theme-toggle .icon{
+
     width: 14px; height: 14px;
+
     display: inline-flex;
+
   }
+
   .theme-toggle .icon svg{ width:100%; height:100%; }
+
   .theme-toggle .icon-sun{ display:none; }
+
   html[data-theme="light"] .theme-toggle .icon-sun{ display:inline-flex; }
+
   html[data-theme="light"] .theme-toggle .icon-moon{ display:none; }
+
   html:not([data-theme="light"]) .theme-toggle .icon-moon{ display:inline-flex; }
 
+
+
   @media (max-width: 560px){
+
     .theme-toggle{
+
       position: static;
+
       margin-top: 18px;
+
       align-self: flex-start;
+
     }
+
   }
+
+
 
   /* Tab navigation */
+
   .tabs{
+
     display:flex;
+
     gap: 4px;
+
     margin-top: 40px;
+
     border-bottom: 1px solid var(--line);
+
     flex-wrap: wrap;
+
   }
+
   .tab-btn{
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 13.5px;
+
     color: var(--dim);
+
     background: transparent;
+
     border: none;
+
     border-bottom: 2px solid transparent;
+
     padding: 10px 4px;
+
     margin-right: 22px;
+
     cursor: pointer;
+
     transition: color .15s ease, border-color .15s ease;
+
   }
+
   .tab-btn:hover, .tab-btn:focus-visible{
+
     color: var(--text);
+
     outline: none;
+
   }
+
   .tab-btn[aria-selected="true"]{
+
     color: var(--neon);
+
     border-bottom-color: var(--neon);
+
   }
+
   .tab-panel{ display:none; }
+
   .tab-panel.active{ display:block; }
 
+
+
   .doc-list{ list-style:none; margin:0; padding:0; }
+
   .doc-item{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap: 14px;
+
     padding: 14px 4px;
+
     border-bottom: 1px solid var(--line);
+
   }
+
   .doc-item:last-child{ border-bottom:none; }
+
   .doc-main{ display:flex; align-items:center; gap:12px; }
+
   .doc-icon{
+
     width: 30px; height: 30px;
+
     flex: none;
+
     border-radius: 4px;
+
     border: 1px solid var(--neon-dim);
+
     color: var(--neon);
+
     display:flex; align-items:center; justify-content:center;
+
   }
+
   .doc-icon svg{ width:16px; height:16px; }
+
   .doc-title{ color: var(--text); font-size: 14.5px; }
+
   .doc-sub{ color: var(--dim); font-size: 12.5px; font-family:"IBM Plex Mono", monospace; margin-top: 2px; }
+
   .doc-link{
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 12.5px;
+
     color: var(--neon);
+
     text-decoration:none;
+
     border: 1px solid var(--neon-dim);
+
     border-radius: 3px;
+
     padding: 5px 10px;
+
     white-space: nowrap;
+
   }
+
   .doc-link:hover, .doc-link:focus-visible{
+
     background: var(--neon-dim);
+
     outline: none;
+
   }
+
   .doc-actions{ display:flex; gap:8px; flex:none; }
+
   .doc-empty{ color: var(--dim); font-size: 14px; padding: 10px 4px; }
 
+
+
   .doc-filters{ display:flex; flex-wrap:wrap; gap:8px; margin: 4px 0 22px; }
+
   .doc-filter{
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 12.5px;
+
     color: var(--dim);
+
     background: transparent;
+
     border: 1px solid var(--line);
+
     border-radius: 999px;
+
     padding: 5px 12px;
+
     cursor: pointer;
+
     transition: color .15s ease, border-color .15s ease, background .15s ease;
-  }
-  .doc-filter:hover, .doc-filter:focus-visible{ color: var(--text); outline:none; }
-  .doc-filter[aria-pressed="true"]{
-    color: var(--neon);
-    border-color: var(--neon-dim);
-    background: var(--panel);
+
   }
 
-  .doc-category{ margin-bottom: 30px; }
-  .doc-category:last-child{ margin-bottom: 0; }
-  .doc-category-title{
-    font-family:"IBM Plex Mono", monospace;
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    color: var(--dim);
-    text-transform: uppercase;
-    margin: 0 0 8px;
+  .doc-filter:hover, .doc-filter:focus-visible{ color: var(--text); outline:none; }
+
+  .doc-filter[aria-pressed="true"]{
+
+    color: var(--neon);
+
+    border-color: var(--neon-dim);
+
+    background: var(--panel);
+
   }
+
+
+
+  .doc-category{ margin-bottom: 30px; }
+
+  .doc-category:last-child{ margin-bottom: 0; }
+
+  .doc-category-title{
+
+    font-family:"IBM Plex Mono", monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 0.04em;
+
+    color: var(--dim);
+
+    text-transform: uppercase;
+
+    margin: 0 0 8px;
+
+  }
+
   .doc-category.is-hidden{ display:none; }
+
+
 
   section{ padding-top: 40px; }
 
+
+
   h2{
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 14px;
+
     font-weight: 600;
+
     color: var(--neon);
+
     margin: 0 0 4px;
+
   }
+
   h2::before{ content:"\`"; color: var(--neon-dim); }
+
   h2::after{ content:"\`"; color: var(--neon-dim); }
+
   .rule{ height:1px; background: var(--line); margin: 10px 0 20px; }
 
+
+
   p{ color: var(--text); margin: 0 0 14px; }
+
   .dim{ color: var(--dim); }
 
+
+
   .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 6px; }
+
   .chip{
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 12.5px;
+
     color: var(--neon);
+
     background: var(--panel);
+
     border: 1px solid var(--neon-dim);
+
     padding: 4px 10px;
+
     border-radius: 3px;
+
   }
+
+
 
   table{
+
     width: 100%;
+
     border-collapse: collapse;
+
     font-size: 14.5px;
+
   }
+
   th{
+
     text-align:left;
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 11.5px;
+
     letter-spacing: 0.06em;
+
     text-transform: uppercase;
+
     color: var(--dim);
+
     padding: 8px 10px;
+
     border-bottom: 1px solid var(--line);
+
   }
+
   td{
+
     padding: 12px 10px;
+
     border-bottom: 1px solid var(--line);
+
     vertical-align: top;
+
     color: var(--text);
+
   }
+
   tr:hover td{ background: var(--panel); }
+
   td.when{
+
     font-family:"IBM Plex Mono", monospace;
+
     color: var(--neon);
+
     white-space: nowrap;
+
     font-size: 13px;
+
   }
+
   td .where{ color: var(--dim); font-size: 13.5px; }
+
   table a{ color: var(--text); border-bottom: 1px dotted var(--neon-dim); text-decoration:none; }
+
   table a:hover{ color: var(--neon); border-bottom-color: var(--neon); }
 
+
+
   ul.reading{ list-style: none; margin:0; padding:0; }
+
   ul.reading li{
+
     padding: 10px 0;
+
     border-bottom: 1px solid var(--line);
+
     font-size: 14.5px;
+
   }
+
   ul.reading li:last-child{ border-bottom:none; }
+
   ul.reading a{ color: var(--text); }
+
   ul.reading a:hover{ color: var(--neon); }
+
+
 
   a{ color: var(--neon); }
 
+
+
   footer{
+
     margin-top: 50px;
+
     padding-top: 24px;
+
     border-top: 1px solid var(--line);
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 12.5px;
+
     color: var(--dim);
+
     display:flex;
+
     justify-content:space-between;
+
     flex-wrap: wrap;
+
     gap: 10px;
+
   }
+
   footer a{ color: var(--dim); }
+
   footer a:hover{ color: var(--neon); }
 
+
+
   /* Other Activities / social cards */
+
   .social-list{ list-style:none; margin:0; padding:0; }
+
   .social-item{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap: 14px;
+
     padding: 16px 4px;
+
     border-bottom: 1px solid var(--line);
+
   }
+
   .social-item:last-child{ border-bottom:none; }
+
   .social-main{ display:flex; align-items:center; gap:14px; }
+
   .social-icon{
+
     width: 38px; height: 38px;
+
     flex: none;
+
     border-radius: 8px;
+
     border: 1px solid var(--neon-dim);
+
     color: var(--neon);
+
     display:flex; align-items:center; justify-content:center;
+
   }
+
   .social-icon svg{ width:20px; height:20px; }
+
   .social-title{ color: var(--text); font-size: 14.5px; font-weight: 600; }
+
   .social-sub{ color: var(--dim); font-size: 12.5px; font-family:"IBM Plex Mono", monospace; margin-top: 2px; }
+
   .social-link{
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 12.5px;
+
     color: var(--neon);
+
     text-decoration:none;
+
     border: 1px solid var(--neon-dim);
+
     border-radius: 3px;
+
     padding: 6px 12px;
+
     white-space: nowrap;
+
     flex: none;
+
   }
+
   .social-link:hover, .social-link:focus-visible{
+
     background: var(--neon-dim);
+
     outline: none;
+
   }
+
+
 
   /* ==========================================================================
+
      MINDMAP EMBED STYLES
+
      ========================================================================== */
+
   .legend{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap: 10px;
+
     margin-bottom: 22px;
+
     margin-top: 20px;
+
   }
+
   .legend-chip{
+
     display:inline-flex;
+
     align-items:center;
+
     gap: 8px;
+
     font-family: "IBM Plex Mono", monospace;
+
     font-size: 12.5px;
+
     color: var(--text);
+
     background: var(--panel);
+
     border: 1px solid var(--line);
+
     border-radius: 999px;
+
     padding: 6px 12px;
+
     cursor: pointer;
+
     transition: border-color .15s ease, opacity .2s ease;
+
   }
+
   .legend-chip .dot{
+
     width: 9px; height: 9px;
+
     border-radius: 50%;
+
     flex: none;
+
   }
+
   .legend-chip:hover, .legend-chip:focus-visible{ border-color: var(--dim); outline: none; }
+
   .legend-chip.is-active{ border-color: currentColor; }
 
+
+
   .reset-btn{
+
     font-family: "IBM Plex Mono", monospace;
+
     font-size: 12.5px;
+
     color: var(--neon);
+
     background: transparent;
+
     border: 1px solid var(--neon-dim);
+
     border-radius: 999px;
+
     padding: 6px 14px;
+
     cursor: pointer;
+
   }
+
   .reset-btn:hover, .reset-btn:focus-visible{ background: var(--neon-dim); outline: none; }
+
   .reset-btn[hidden]{ display:none; }
 
+
+
   .mindmap-scroll{
+
     overflow-x: auto;
+
     overflow-y: hidden;
+
     -webkit-overflow-scrolling: touch;
+
     border: 1px solid var(--line);
+
     border-radius: 8px;
+
     background: var(--panel);
+
     margin-top: 15px;
+
   }
+
   .mindmap-scroll svg{
+
     display:block;
+
     width: 100%;
+
     min-width: 900px;
+
     height: auto;
+
     margin: 0 auto;
+
   }
+
+
 
   .scroll-hint{
+
     display:none;
+
     font-family:"IBM Plex Mono", monospace;
+
     font-size: 12px;
+
     color: var(--dim);
+
     margin: 8px 2px 0;
+
   }
+
   @media (max-width: 640px){
+
     .scroll-hint{ display:block; }
+
   }
+
+
 
   .branch-group{ transition: opacity .25s ease; cursor: pointer; }
+
   .branch-group .connector{ transition: opacity .2s ease, stroke-width .2s ease; }
+
   .branch-group .leaf-connector{ transition: opacity .2s ease, stroke-width .2s ease; }
+
   .branch-group:hover .connector{ stroke-width: 3; }
+
   .branch-group:hover .branch-label{ fill: var(--text); }
 
+
+
   .branch-group.mm-dim{ opacity: .15; }
+
   .branch-group.mm-active{ opacity: 1; }
 
+
+
   .leaf-item{ transition: opacity .2s ease; }
+
   .leaf-item:hover .leaf-connector{ opacity: .9 !important; stroke-width: 2; }
+
   .leaf-item:hover .leaf-label{ fill: var(--text); }
 
+
+
   .center-node{ cursor: pointer; }
+
   .center-node text{ font-family: "IBM Plex Mono", monospace; fill: var(--text); }
 
+
+
   .branch-label{ font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+
   .leaf-label{ font-family: "IBM Plex Sans", Arial, sans-serif; fill: var(--dim); }
 
+
+
   @media (max-width: 560px){
+
     header{ flex-direction: column; }
+
     table, thead, tbody, th, td, tr{ display:block; }
+
     thead{ display:none; }
+
     td{ border-bottom:none; padding: 3px 0; }
+
     tr{ padding: 12px 0; border-bottom: 1px solid var(--line); }
+
   }
+
+
+
+  /* Live date and time — option B: compact split instrument panel */
+  .live-clock {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-top: 26px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--neon);
+    border-radius: 4px;
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .live-clock::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 190px;
+    height: 190px;
+    right: -74px;
+    top: -95px;
+    border: 1px solid var(--neon-dim);
+    border-radius: 50%;
+    opacity: .28;
+    box-shadow: 0 0 0 18px var(--panel), 0 0 0 19px var(--line), 0 0 0 39px var(--panel), 0 0 0 40px var(--line);
+    pointer-events: none;
+  }
+  .clock-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(220px, .85fr);
+    gap: 24px;
+    align-items: center;
+    padding: 22px 24px 20px;
+  }
+  .clock-time-wrap { min-width: 0; }
+  .clock-kicker, .clock-info-label {
+    color: var(--dim);
+    font-size: 10px;
+    letter-spacing: .13em;
+    line-height: 1.6;
+  }
+  .clock-kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .clock-kicker-sep { color: var(--neon-dim); }
+  .clock-live-dot {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--neon);
+    box-shadow: 0 0 9px var(--neon);
+  }
+  .clock-time {
+    display: block;
+    margin-top: 8px;
+    color: var(--neon);
+    font-size: clamp(36px, 5.6vw, 52px);
+    font-weight: 500;
+    letter-spacing: .045em;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .clock-info {
+    min-width: 0;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 24px;
+    border-left: 1px solid var(--line);
+  }
+  .clock-date {
+    display: block;
+    margin-top: 7px;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.8;
+    letter-spacing: .035em;
+  }
+  .clock-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+  }
+  .clock-chip {
+    padding: 4px 7px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--dim);
+    font-size: 9px;
+    letter-spacing: .035em;
+  }
+  .clock-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px 16px;
+    padding: 10px 24px;
+    border-top: 1px solid var(--line);
+    color: var(--dim);
+    font-size: 9px;
+    letter-spacing: .08em;
+  }
+  .clock-footer strong { color: var(--text); font-weight: 500; }
+  .clock-live-state { display: inline-flex; align-items: center; gap: 7px; color: var(--neon); }
+  .clock-live-state .clock-live-dot { width: 5px; height: 5px; }
+  .tabs { margin-top: 28px; }
+  @media (max-width: 560px) {
+    .clock-main { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 18px 16px 16px; }
+    .clock-time { font-size: clamp(34px, 10vw, 46px); }
+    .clock-info { border-left: 0; border-top: 1px solid var(--line); padding: 14px 0 0; }
+    .clock-footer { padding: 10px 16px; }
+  }
+
 </style>
+
 </head>
+
 <body>
+
 <div class="wrap">
 
+
+
   <header>
+
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+
       <span class="icon icon-moon" aria-hidden="true">
+
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+
       </span>
+
       <span class="icon icon-sun" aria-hidden="true">
+
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+
       </span>
+
       <span id="themeLabel">dark</span>
+
     </button>
 
+
+
     <img src="profile.jpg" alt="Portrait of Tran Ly Kien Truc">
+
     <div class="id">
+
       <p class="prompt">~/undergrad/math-phys · Trần Lý Kiến Trúc$</p>
+
       <h1>Tran Ly Kien Truc<span class="cursor"></span></h1>
+
       <p class="role">Physics Undergraduate · Mathematical Physics &amp; Quantum Theory</p>
+
       <p class="meta">Ho Chi Minh City, Vietnam</p>
+
       <p class="meta">VNU-HCM, University of Science</p>
+
       <p class="meta">Tel: (+84) 903 895 631</p>
+
       <div class="links">
+
         <a href="mailto:kientruc0711@gmail.com">Email</a>
+
         <a href="https://github.com/SirTrucc">GitHub</a>
+
         <a href="https://www.linkedin.com/in/vincxnt-sterling/">LinkedIn</a>
+
         <a href="mailto:23130253@student.hcmus.edu.vn">HCMUS</a>
+
         <a href="https://www.instagram.com/tlktruc._/">Instagram</a>
+
         <a href="https://www.facebook.com/vin.ster.711">Facebook</a>
+
         <a href="https://x.com/vince_ster05">X</a>
+
       </div>
+
     </div>
+
   </header>
 
+  <!-- Live clock: style B / split instrument panel -->
+  <section class="live-clock" aria-label="Live date and time">
+    <div class="clock-main">
+      <div class="clock-time-wrap">
+        <div class="clock-kicker"><span class="clock-live-dot" aria-hidden="true"></span> REAL-TIME SYSTEM <span class="clock-kicker-sep">/</span> HCMC</div>
+        <time id="live-time" class="clock-time">--:--:--</time>
+      </div>
+      <div class="clock-info">
+        <div class="clock-info-label">LOCAL DATE</div>
+        <time id="live-date" class="clock-date">LOADING DATE...</time>
+        <div class="clock-chips">
+          <span class="clock-chip" id="live-timezone">Asia/Ho_Chi_Minh</span>
+          <span class="clock-chip" id="live-utc">UTC+07:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="clock-footer">
+      <span>TIME SOURCE <strong>DEVICE CLOCK</strong></span>
+      <span class="clock-live-state"><span class="clock-live-dot" aria-hidden="true"></span> LIVE UPDATE</span>
+    </div>
+  </section>
+
+
+
+
   <nav class="tabs" role="tablist" aria-label="Sections">
+
     <button class="tab-btn" id="tabBtn-overview" role="tab" aria-selected="true" aria-controls="tab-overview" type="button">Overview</button>
+
     <button class="tab-btn" id="tabBtn-documents" role="tab" aria-selected="false" aria-controls="tab-documents" type="button">Documents</button>
+
     <button class="tab-btn" id="tabBtn-publications" role="tab" aria-selected="false" aria-controls="tab-publications" type="button">Publications</button>
+
     <button class="tab-btn" id="tabBtn-other" role="tab" aria-selected="false" aria-controls="tab-other" type="button">Other Activities</button>
+
   </nav>
+
+
 
   <div class="tab-panel active" id="tab-overview" role="tabpanel" aria-labelledby="tabBtn-overview">
 
+
+
   <section>
+
     <h2>Education &amp; Positions</h2>
+
     <div class="rule"></div>
+
     <table>
+
       <thead><tr><th style="width:110px;">Year</th><th>Degree / Track</th><th>Institution</th><th>Advisor / Mentor</th></tr></thead>
+
       <tbody>
+
         <tr>
+
           <td class="when">
+
             Sep 2023 – Mar 2028<br>
+
             <span style="display:inline-block; margin-top:3px; font-size:11px; color:var(--dim);">(expected)</span>
+
           </td>
+
           <td>
+
             BSc. in <strong>Physics</strong><br>
+
             <span class="where" style="display:inline-block; margin-top:3px;">Major: Theoretical Physics</span>
+
           </td>
+
           <td class="where"><a href="https://phys.hcmus.edu.vn">VNU-HCM, University of Science</a>, Vietnam</td>
+
           <td class="where"><a href="https://dinh-thi-nguyen.github.io">Dr. Nguyen Dinh Thi</a></td>
+
         </tr>
+
       </tbody>
+
     </table>
+
   </section>
 
+
+
   <section>
+
     <h2>Teaching Experience</h2>
+
     <div class="rule"></div>
+
     <table>
+
       <thead><tr><th style="width:110px;">Year</th><th>Course / Activity</th><th>Place</th></tr></thead>
+
       <tbody>
+
         <tr>
+
           <td class="when">Summer 2026</td>
+
           <td>
+
             Teaching Assistant for <strong>10th Graders in Physics</strong> (Vietnamese)
+
           </td>
+
           <td class="where"><a href="https://www.facebook.com/hcmus.cfl/">Center for Foreign Languages - HCMUS</a>, Vietnam</td>
+
         </tr>
+
       </tbody>
+
     </table>
+
   </section>
 
+
+
   <section>
+
     <h2>Research Interests</h2>
+
     <div class="rule"></div>
+
     <div class="chips">
+
       <span class="chip">Quantum Many-Body Physics</span>
+
       <span class="chip">Nonlinear PDEs</span>
+
       <span class="chip">Bose–Einstein Condensation</span>
+
       <span class="chip">Mathematical Methods</span>
+
     </div>
+
     <p class="dim" style="margin-top:14px;">My interests lie in mathematical quantum mechanics, nonlinear PDEs, and dynamical systems. Working with Dr. Nguyen Dinh Thi, I study Bose–Einstein condensates and related quantum many-body models, especially in rotating, self-gravitating, and semi-relativistic settings. I enjoy exploring how elegant mathematical ideas help explain rich and fascinating physical phenomena.</p>
 
+
+
     <div id="research-mindmap">
+
       <div class="legend" id="legend"></div>
+
       <div class="mindmap-scroll">
+
         <svg id="mindmap-svg" viewBox="-780 -650 1560 1300" role="img" aria-label="Mind map of research interests branching from Theoretical Physics, Quantum Many-Body Physics, and Bose-Einstein Condensates"></svg>
+
       </div>
+
       <p class="scroll-hint">Scroll horizontally to see the full map.</p>
+
       <div style="margin-top:16px; display:flex; align-items:center; gap:14px;">
+
         <button class="reset-btn" id="resetBtn" type="button" hidden>Reset view</button>
+
         <p style="color:var(--dim); font-size:13px; margin:0;">Click a branch or legend chip to trace a path. Click again to reset.</p>
+
       </div>
+
     </div>
+
   </section>
 
+
+
   <section>
+
     <h2>Activities &amp; Seminars</h2>
+
     <div class="rule"></div>
+
     <table>
+
       <thead>
+
         <tr>
+
           <th style="width:120px;">Year</th>
+
           <th>Name</th>
+
           <th>Place</th>
+
           <th>Remark</th>
+
         </tr>
+
       </thead>
+
       <tbody>
+
         <tr>
+
           <td class="when">09.2026</td>
+
           <td><a href="https://phys.hcmus.edu.vn/vi/tin-tuc/seminar-trao-doi-hoc-thuat-va-ket-noi-co-hoi-hoc-tap-sau-dai-hoc-cung-bo-mon-vat-ly-ly-thuyet">Seminar: "What constitutes a gravitational wave in an expanding universe?"</a></td>
+
           <td class="where">Vietnam, HCMC</td>
+
           <td class="where">Participant</td>
+
         </tr>
 
+
+
         <tr>
+
           <td class="when">08.2026</td>
+
           <td><a href="https://viasm.edu.vn/hdkh/school-math-physics2026-HCM">Summer School in Mathematical Physics by VIASM</a></td>
+
           <td class="where">Vietnam, HCMC</td>
+
           <td class="where">Participant</td>
+
         </tr>
 
+
+
         <tr>
+
           <td class="when">07.2026</td>
+
           <td><a href="https://www.math.hcmus.edu.vn/tin-tuc/tin-nghien-cuu/1353-hội-thảo-phương-trình-đạo-hàm-riêng-cho-các-hệ-lượng-tử-nhiều-hạt">Workshop on 'PDEs for Quantum Manybody Systems' by Faculty of Mathematics and Computer Science, VNU-HCM</a></td>
+
           <td class="where">Vietnam, HCMC</td>
+
           <td class="where">Participant</td>
+
         </tr>
 
+
+
         <tr>
+
           <td class="when">03.2026</td>
+
           <td><a href="https://phys.hcmus.edu.vn/tin-tuc/hoi-thao-quoc-te-ve-cac-tien-bo-gan-day-trong-khoa-hoc-va-cong-nghe-luong-tu">International Symposium on Recent Advances in Quantum Science and Technology (ISAQST 2026)</a></td>
+
           <td class="where">Vietnam, HCMC</td>
+
           <td class="where">Participant</td>
+
         </tr>
 
+
+
         <tr>
+
           <td class="when">01.2026</td>
+
           <td><a href="https://sites.google.com/view/acmd2026/">Asia Computational Material Design (ACMD) 2026</a></td>
+
           <td class="where">Vietnam, HCMC</td>
+
           <td class="where">Participant</td>
+
         </tr>
 
+
+
         <tr>
+
           <td class="when">10.2025</td>
+
           <td><a href="https://www.spaceappschallenge.org/2025/find-a-team/mini-colossi/">NASA Space Apps Challenge 2025 by NASA</a></td>
+
           <td class="where">Vietnam, HCMC</td>
+
           <td class="where">Participant (Team Leader)</td>
+
         </tr>
 
+
+
         <tr>
+
           <td class="when">08.2025</td>
+
           <td><a href="https://phys.hcmus.edu.vn/tin-tuc/hoi-thao-tinh-toan-luong-tu-nen-tang--thach-thuc-va-co-hoi">Workshop: "Quantum Computing: Foundations, Challenges and Chances"</a></td>
+
           <td class="where">Vietnam, HCMC</td>
+
           <td class="where">Participant</td>
+
         </tr>
+
+
 
       </tbody>
+
     </table>
+
   </section>
+
+
 
   <section>
+
   <h2>Achievements &amp; Scholarships</h2>
+
   <div class="rule"></div>
 
+
+
   <p class="dim">
+
     Currently building my academic and research portfolio through internships,
+
     seminars, and collaborative projects.
+
   </p>
+
   </section>
 
+
+
   </div><div class="tab-panel" id="tab-documents" role="tabpanel" aria-labelledby="tabBtn-documents" hidden>
+
     <section style="padding-top:24px;">
+
       <h2>Documents</h2>
+
       <div class="rule"></div>
+
+
 
       <div class="doc-filters" role="group" aria-label="Filter by subject">
+
         <button class="doc-filter" type="button" data-filter="all" aria-pressed="true">All</button>
+
         <button class="doc-filter" type="button" data-filter="math" aria-pressed="false">Mathematics</button>
+
         <button class="doc-filter" type="button" data-filter="physics" aria-pressed="false">Physics</button>
+
         <button class="doc-filter" type="button" data-filter="chemistry" aria-pressed="false">Chemistry</button>
+
         <button class="doc-filter" type="button" data-filter="other" aria-pressed="false">Others</button>
+
       </div>
+
+
 
       <div class="doc-category" data-category="math">
+
         <p class="doc-category-title">Mathematics</p>
+
         <ul class="doc-list">
+
           <li class="doc-item">
+
             <div class="doc-main">
+
               <span class="doc-icon" aria-hidden="true">
+
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+
               </span>
+
               <div>
+
                 <div class="doc-title">Group Theory (Lie Algebra) — Self-compiled Notes, Chapter 1</div>
+
                 <div class="doc-sub">PDF · Chapter 1</div>
+
               </div>
+
             </div>
+
             <div class="doc-actions">
+
               <a class="doc-link" href="Group%20Theory/Group_Theory_note_Basic_Principles.pdf" target="_blank" rel="noopener">Read</a>
+
               <a class="doc-link" href="Group%20Theory/Group_Theory_note_Basic_Principles.pdf" download>Download</a>
+
             </div>
+
           </li>
+
         </ul>
+
       </div>
+
+
 
       <div class="doc-category" data-category="physics">
+
         <p class="doc-category-title">Physics</p>
 
+
+
         <div class="doc-subsection">
+
           <p class="doc-subsection-title">Solid State Basics</p>
+
           <ul class="doc-list">
+
             <li class="doc-item">
+
               <div class="doc-main">
+
                 <span class="doc-icon" aria-hidden="true">
+
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+
                 </span>
+
                 <div>
+
                   <div class="doc-title">Solid State Basics - Two Body with Oscillator in a Potential Well (Problem, written in Vietnamese)</div>
+
                   <div class="doc-sub">PDF · Vietnamese</div>
+
                 </div>
+
               </div>
+
               <div class="doc-actions">
+
                 <a class="doc-link" href="Solid%20State%20Basics/SS_T1_TranLyKienTruc-upd.pdf" target="_blank" rel="noopener">Read</a>
+
                 <a class="doc-link" href="Solid%20State%20Basics/SS_T1_TranLyKienTruc-upd.pdf" download>Download</a>
+
               </div>
+
             </li>
+
           </ul>
+
         </div>
 
+
+
         <div class="doc-subsection">
+
           <p class="doc-subsection-title">Relativity</p>
+
           <ul class="doc-list">
+
             <li class="doc-item">
+
               <div class="doc-main">
+
                 <span class="doc-icon" aria-hidden="true">
+
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+
                 </span>
+
                 <div>
+
                   <div class="doc-title">Relativistic (Episode 1) - Hamiltonian Mechanics</div>
+
                   <div class="doc-sub">PDF · Episode 1</div>
+
                 </div>
+
               </div>
+
               <div class="doc-actions">
+
                 <a class="doc-link" href="Relativistic/Relativistic__Episode_1____Hamiltonian_Mechanics.pdf" target="_blank" rel="noopener">Read</a>
+
                 <a class="doc-link" href="Relativistic/Relativistic__Episode_1____Hamiltonian_Mechanics.pdf" download>Download</a>
+
               </div>
+
             </li>
+
           </ul>
+
         </div>
 
+
+
         <div class="doc-subsection">
+
           <p class="doc-subsection-title">Quantum Mechanics</p>
+
           <ul class="doc-list">
+
             <li class="doc-item">
+
               <div class="doc-main">
+
                 <span class="doc-icon" aria-hidden="true">
+
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+
                 </span>
+
                 <div>
+
                   <div class="doc-title">Quantum Mechanics - Proving with Unitary Operator and BCH formula (Problem, written in Vietnamese)</div>
+
                   <div class="doc-sub">PDF · Vietnamese</div>
+
                 </div>
+
               </div>
+
               <div class="doc-actions">
+
                 <a class="doc-link" href="Quantum%20Mechanics/Baker-Campbell-Hausdorff.pdf" target="_blank" rel="noopener">Read</a>
+
                 <a class="doc-link" href="Quantum%20Mechanics/Baker-Campbell-Hausdorff.pdf" download>Download</a>
+
               </div>
+
             </li>
+
           </ul>
+
         </div>
 
+
+
         <div class="doc-subsection">
+
           <p class="doc-subsection-title">Quantum Field Theory</p>
+
           <ul class="doc-list">
+
             <li class="doc-item">
+
               <div class="doc-main">
+
                 <span class="doc-icon" aria-hidden="true">
+
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+
                 </span>
+
                 <div>
+
                   <div class="doc-title">Quantum Field Theory - Scalar field quantization (Problem, written in Vietnamese)</div>
+
                   <div class="doc-sub">PDF · Vietnamese</div>
+
                 </div>
+
               </div>
+
               <div class="doc-actions">
+
                 <a class="doc-link" href="Quantum%20Field%20Theory/QFT_W3_TranLyKienTruc.pdf" target="_blank" rel="noopener">Read</a>
+
                 <a class="doc-link" href="Quantum%20Field%20Theory/QFT_W3_TranLyKienTruc.pdf" download>Download</a>
+
               </div>
+
             </li>
+
           </ul>
+
         </div>
+
+
 
       </div>
+
+
 
       <div class="doc-category" data-category="chemistry">
+
         <p class="doc-category-title">Chemistry</p>
+
         <p class="doc-empty">There are no documents available.</p>
+
       </div>
+
+
 
       <div class="doc-category" data-category="other">
+
       <p class="doc-category-title">Others</p>
 
-      <div class="doc-subsection">
-        <p class="doc-subsection-title">Research Notes</p>
-        <ul class="doc-list">
-          <li class="doc-item">
-            <div class="doc-main">
-              <span class="doc-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-              </span>
-              <div>
-                <div class="doc-title">Research Note 01 - Introduction to Bose-Einstein Condensates (written in Vietnamese)</div>
-                <div class="doc-sub">PDF · Episode 1</div>
-              </div>
-            </div>
-            <div class="doc-actions">
-              <a class="doc-link" href="Research%20Journal/01-BoseEinstein-upd2.pdf" target="_blank" rel="noopener">Read</a>
-              <a class="doc-link" href="Research%20Journal/01-BoseEinstein-upd2.pdf" download>Download</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+
 
       <div class="doc-subsection">
-        <p class="doc-subsection-title">Teaching</p>
-        <p class="doc-empty">There are no documents available.</p>
+
+        <p class="doc-subsection-title">Research Notes</p>
+
+        <ul class="doc-list">
+
+          <li class="doc-item">
+
+            <div class="doc-main">
+
+              <span class="doc-icon" aria-hidden="true">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+
+              </span>
+
+              <div>
+
+                <div class="doc-title">Research Note 01 - Introduction to Bose-Einstein Condensates (written in Vietnamese)</div>
+
+                <div class="doc-sub">PDF · Episode 1</div>
+
+              </div>
+
+            </div>
+
+            <div class="doc-actions">
+
+              <a class="doc-link" href="Research%20Journal/01-BoseEinstein-upd2.pdf" target="_blank" rel="noopener">Read</a>
+
+              <a class="doc-link" href="Research%20Journal/01-BoseEinstein-upd2.pdf" download>Download</a>
+
+            </div>
+
+          </li>
+
+        </ul>
+
       </div>
+
+
+
+      <div class="doc-subsection">
+
+        <p class="doc-subsection-title">Teaching</p>
+
+        <p class="doc-empty">There are no documents available.</p>
+
+      </div>
+
+
 
     </div>
+
     </section>
+
   </div><div class="tab-panel" id="tab-publications" role="tabpanel" aria-labelledby="tabBtn-publications" hidden>
+
     <section style="padding-top:24px;">
+
       <h2>Publications</h2>
+
       <div class="rule"></div>
+
       <p class="doc-empty">There are no publications — Research in progress...</p>
+
     </section>
+
   </div><div class="tab-panel" id="tab-other" role="tabpanel" aria-labelledby="tabBtn-other" hidden>
+
     <section style="padding-top:24px;">
+
       <h2>Other Activities</h2>
+
       <div class="rule"></div>
+
       <p class="dim">Outside of research, here's where else you can find me.</p>
 
+
+
       <ul class="social-list">
+
         <li class="social-item">
+
           <div class="social-main">
+
             <span class="social-icon" aria-hidden="true">
+
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33Z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+
             </span>
+
             <div>
+
               <div class="social-title">YouTube Channel</div>
+
               <div class="social-sub">My outside activities usually happens here, I do random things outside of my research.</div>
+
             </div>
+
           </div>
+
           <a class="social-link" href="https://www.youtube.com/@vinny.s" target="_blank" rel="noopener">Visit</a>
+
         </li>
+
         <li class="social-item">
+
         <div class="social-main">
+
           <span class="social-icon" aria-hidden="true">
+
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
               <path d="M18 2H6a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4Z"/>
+
               <path d="M8 10v6M8 7v.01M12 16v-6M12 10c0-1.1.9-2 2-2s2 .9 2 2v6"/>
+
             </svg>
+
           </span>
+
           <div>
+
             <div class="social-title">Co-Administrator — Đua xe đá banh (F1 and Football posts written in Vietnamese)</div>
+
             <div class="social-sub">
+
               Motorsport &amp; football media · Content, race coverage &amp; community management
+
             </div>
+
           </div>
+
         </div>
+
         <a class="social-link"
+
           href="https://www.facebook.com/profile.php?id=61592473059143"
+
           target="_blank"
+
           rel="noopener">Visit</a>
+
       </li>
+
       </ul>
+
     </section>
+
   </div><footer>
+
     <span>© 2026 Tran Ly Kien Truc</span>
+
     <span>Hibernating...</span>
+
   </footer>
+
+
 
 </div>
 
+
+
 <script>
+
 (function(){
+
   var root = document.documentElement;
+
   var btn = document.getElementById('themeToggle');
+
   var label = document.getElementById('themeLabel');
+
   var STORAGE_KEY = 'site-theme';
 
+
+
   function safeGet(key){
+
     try { return localStorage.getItem(key); } catch(e){ return null; }
+
   }
+
   function safeSet(key, value){
+
     try { localStorage.setItem(key, value); } catch(e){ /* storage unavailable, ignore */ }
+
   }
+
+
 
   function applyTheme(theme){
+
     if(theme === 'light'){
+
       root.setAttribute('data-theme', 'light');
+
       label.textContent = 'light';
+
     } else {
+
       root.removeAttribute('data-theme');
+
       label.textContent = 'dark';
+
     }
+
   }
+
+
 
   var saved = safeGet(STORAGE_KEY);
+
   var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+
   applyTheme(saved || (prefersLight ? 'light' : 'dark'));
 
+
+
   btn.addEventListener('click', function(){
+
     var isLight = root.getAttribute('data-theme') === 'light';
+
     var next = isLight ? 'dark' : 'light';
+
     applyTheme(next);
+
     safeSet(STORAGE_KEY, next);
+
   });
+
 })();
 
+
+
 (function(){
+
   var tabButtons = document.querySelectorAll('.tab-btn');
+
   var panels = {
+
     'tabBtn-overview': document.getElementById('tab-overview'),
+
     'tabBtn-documents': document.getElementById('tab-documents'),
+
     'tabBtn-publications': document.getElementById('tab-publications'),
+
     'tabBtn-other': document.getElementById('tab-other')
+
   };
 
+
+
   function activate(btn){
+
     tabButtons.forEach(function(b){
+
       var selected = (b === btn);
+
       b.setAttribute('aria-selected', selected ? 'true' : 'false');
+
       var panel = panels[b.id];
+
       if(panel){
+
         panel.classList.toggle('active', selected);
+
         if(selected){ panel.removeAttribute('hidden'); }
+
         else { panel.setAttribute('hidden', ''); }
+
       }
+
     });
+
   }
 
+
+
   tabButtons.forEach(function(btn){
+
     btn.addEventListener('click', function(){ activate(btn); });
+
   });
+
 })();
 
+
+
 (function(){
+
   var filterButtons = document.querySelectorAll('.doc-filter');
+
   var categories = document.querySelectorAll('.doc-category');
 
+
+
   filterButtons.forEach(function(btn){
+
     btn.addEventListener('click', function(){
+
       var target = btn.getAttribute('data-filter');
 
+
+
       filterButtons.forEach(function(b){
+
         b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+
       });
+
+
 
       categories.forEach(function(cat){
+
         var match = (target === 'all') || (cat.getAttribute('data-category') === target);
+
         cat.classList.toggle('is-hidden', !match);
+
       });
+
     });
+
   });
+
 })();
+
 </script>
 
+
+
 <script>
+
 (function(){
+
   var NS = 'http://www.w3.org/2000/svg';
+
   var svg = document.getElementById('mindmap-svg');
+
   var legend = document.getElementById('legend');
+
   var resetBtn = document.getElementById('resetBtn');
+
+
 
   if(!svg || !legend) return;
 
+
+
   var R_CENTER = 135;
+
   var R1 = 280;   // branch node radius
+
   var R2 = 480;   // leaf node radius
+
   var ANGLES = [-45, 45, 135, 225, 90];
 
+
+
   var DATA = [
+
     {
+
       name: 'Quantum Many-Body Physics',
+
       color: 'var(--c-quantum)',
+
       leaves: ['Mathematical Quantum Mechanics', 'Hartree Theory', 'Hartree\u2013Fock\u2013Bogoliubov Theory', 'Local Density Functional Theory']
+
     },
+
     {
+
       name: 'Nonlinear PDEs',
+
       color: 'var(--c-pde)',
+
       leaves: ['Functional Analysis', 'Nonlinear Analysis', 'Fourier Analysis', 'Convex Analysis', 'Real Analysis', 'Calculus of Variations', 'Functional Inequality', 'Ginzburg\u2013Landau Theory', 'Nonlinear Schrödinger Theory', 'Chern\u2013Simons\u2013Schr\u00f6dinger Theory']
+
     },
+
     {
+
       name: 'Bose\u2013Einstein Condensation',
+
       color: 'var(--c-bec)',
+
       leaves: ['Gross\u2013Pitaevskii Theory', 'Thomas\u2013Fermi Theory', 'Average-Field\u2013Pauli Theory', 'Superfluidity', 'Quantized Vortices', 'Bose\u2013Einstein Condensate']
+
     },
+
     {
+
       name: 'Mathematical Methods',
+
       color: 'var(--c-dynamical)',
+
       leaves: ['Spectral Theory', 'Operator Theory', 'Dynamical Systems', 'Numerical Analysis', 'Scientific Computing', 'Variational Methods', 'Thomas\u2013Fermi Approximation', 'Semi-Classical Analysis', 'Semi-Relativistic Models']
+
     },
+
     {
+
       name: 'Fundamental Particles',
+
       color: 'var(--c-particles)',
+
       small: true,
+
       leaves: ['Bosons', 'Fermions', 'Anyons']
+
     }
+
   ];
 
+
+
   function polar(r, deg){
+
     var rad = deg * Math.PI / 180;
+
     return { x: r * Math.cos(rad), y: r * Math.sin(rad) };
+
   }
+
+
 
   function el(tag, attrs){
+
     var e = document.createElementNS(NS, tag);
+
     for(var k in attrs){ e.setAttribute(k, attrs[k]); }
+
     return e;
+
   }
+
+
 
   function buildLegend(){
+
     DATA.forEach(function(b){
+
       var chip = document.createElement('button');
+
       chip.type = 'button';
+
       chip.className = 'legend-chip';
+
       chip.dataset.branch = b.name;
+
       chip.style.color = b.color;
+
       var dot = document.createElement('span');
+
       dot.className = 'dot';
+
       dot.style.background = b.color;
+
       chip.appendChild(dot);
+
       chip.appendChild(document.createTextNode(b.name));
+
       chip.addEventListener('click', function(){ focusBranch(b.name); });
+
       legend.appendChild(chip);
+
     });
+
   }
 
+
+
   function render(){
+
     // center node
+
     var centerGroup = el('g', { class: 'center-node' });
+
     centerGroup.appendChild(el('circle', { cx:0, cy:0, r:R_CENTER, fill:'none', stroke:'var(--neon)', 'stroke-width':1.5, opacity:0.8 }));
+
     var t1 = el('text', { x:0, y:-26, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
+
     t1.textContent = 'Theoretical Physics';
+
     var t2 = el('text', { x:0, y:0, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
+
     t2.textContent = 'Quantum Many-Body Physics';
+
     var t3 = el('text', { x:0, y:26, 'text-anchor':'middle', 'font-size':16, 'font-weight':600 });
+
     t3.textContent = 'Bose\u2013Einstein Condensates';
+
     centerGroup.appendChild(t1);
+
     centerGroup.appendChild(t2);
+
     centerGroup.appendChild(t3);
+
     centerGroup.addEventListener('click', resetFocus);
+
     svg.appendChild(centerGroup);
 
+
+
     DATA.forEach(function(b, i){
+
       var angle = ANGLES[i];
+
       var scale = b.small ? 0.5 : 1;
+
       var r1 = R1 * scale;
+
       var r2 = R2 * scale;
 
+
+
       var branchPos = polar(r1, angle);
+
       var ctrlAngle = angle + (i % 2 === 0 ? 8 : -8);
+
       var ctrl = polar(r1 * 0.5, ctrlAngle);
 
+
+
       var g = el('g', { class: 'branch-group' });
+
       g.dataset.branch = b.name;
 
+
+
       var connector = el('path', {
+
         class: 'connector',
+
         d: 'M0,0 Q' + ctrl.x.toFixed(1) + ',' + ctrl.y.toFixed(1) + ' ' + branchPos.x.toFixed(1) + ',' + branchPos.y.toFixed(1),
+
         fill: 'none', stroke: b.color, 'stroke-width': b.small ? 1.5 : 2, opacity: 0.6
+
       });
+
       g.appendChild(connector);
 
+
+
       var node = el('circle', { cx: branchPos.x.toFixed(1), cy: branchPos.y.toFixed(1), r: b.small ? 6 : 9, fill: b.color });
+
       g.appendChild(node);
 
+
+
       var anchor = Math.cos(angle * Math.PI / 180) >= -0.05 ? 'start' : 'end';
+
       var labelPos = polar(r1 + (b.small ? 14 : 22), angle);
+
       var labelText = el('text', {
+
         class: 'branch-label',
+
         x: labelPos.x.toFixed(1), y: labelPos.y.toFixed(1),
+
         'text-anchor': anchor, 'dominant-baseline': 'middle',
+
         'font-size': b.small ? 12 : 16.5, fill: b.color
+
       });
+
       labelText.textContent = b.name;
+
       g.appendChild(labelText);
 
+
+
       var count = b.leaves.length;
+
       var fan = Math.min(70, count * 10);
+
       b.leaves.forEach(function(leaf, j){
+
         var leafAngle = count === 1 ? angle : (angle - fan / 2 + (fan / (count - 1)) * j);
+
         var leafPos = polar(r2, leafAngle);
+
         var blendAngle = angle * 0.3 + leafAngle * 0.7;
+
         var leafCtrl = polar((r1 + r2) / 2 * 0.98, blendAngle);
+
+
 
         var leafGroup = el('g', { class: 'leaf-item' });
 
+
+
         var leafConnector = el('path', {
+
           class: 'leaf-connector',
+
           d: 'M' + branchPos.x.toFixed(1) + ',' + branchPos.y.toFixed(1) + ' Q' + leafCtrl.x.toFixed(1) + ',' + leafCtrl.y.toFixed(1) + ' ' + leafPos.x.toFixed(1) + ',' + leafPos.y.toFixed(1),
+
           fill: 'none', stroke: b.color, 'stroke-width': b.small ? 1 : 1.2, opacity: 0.4
+
         });
+
         leafGroup.appendChild(leafConnector);
 
+
+
         var leafDot = el('circle', { cx: leafPos.x.toFixed(1), cy: leafPos.y.toFixed(1), r: b.small ? 3 : 4.5, fill: b.color, opacity: 0.9 });
+
         leafGroup.appendChild(leafDot);
 
+
+
         var leafAnchor = Math.cos(leafAngle * Math.PI / 180) >= -0.02 ? 'start' : 'end';
+
         var leafLabelPos = polar(r2 + (b.small ? 8 : 12), leafAngle);
+
         var leafText = el('text', {
+
           class: 'leaf-label',
+
           x: leafLabelPos.x.toFixed(1), y: leafLabelPos.y.toFixed(1),
+
           'text-anchor': leafAnchor, 'dominant-baseline': 'middle',
+
           'font-size': b.small ? 10.5 : 13.5
+
         });
+
         leafText.textContent = leaf;
+
         var titleEl = el('title', {});
+
         titleEl.textContent = leaf;
+
         leafText.appendChild(titleEl);
+
         leafGroup.appendChild(leafText);
 
+
+
         g.appendChild(leafGroup);
+
       });
+
+
 
       g.addEventListener('click', function(ev){
+
         ev.stopPropagation();
+
         focusBranch(b.name);
+
       });
 
+
+
       svg.appendChild(g);
+
     });
+
   }
+
+
 
   var currentFocus = null;
 
+
+
   function focusBranch(name){
+
     var groups = svg.querySelectorAll('.branch-group');
+
     var chips = legend.querySelectorAll('.legend-chip');
+
+
 
     if(currentFocus === name){
+
       resetFocus();
+
       return;
+
     }
 
+
+
     currentFocus = name;
+
     groups.forEach(function(g){
+
       if(g.dataset.branch === name){
+
         g.classList.add('mm-active');
+
         g.classList.remove('mm-dim');
+
       } else {
+
         g.classList.add('mm-dim');
+
         g.classList.remove('mm-active');
+
       }
+
     });
+
     chips.forEach(function(c){
+
       c.classList.toggle('is-active', c.dataset.branch === name);
+
     });
+
     if(resetBtn) resetBtn.hidden = false;
+
   }
 
+
+
   function resetFocus(){
+
     var groups = svg.querySelectorAll('.branch-group');
+
     var chips = legend.querySelectorAll('.legend-chip');
+
     groups.forEach(function(g){ g.classList.remove('mm-active', 'mm-dim'); });
+
     chips.forEach(function(c){ c.classList.remove('is-active'); });
+
     currentFocus = null;
+
     if(resetBtn) resetBtn.hidden = true;
+
   }
+
+
 
   if(resetBtn) resetBtn.addEventListener('click', resetFocus);
 
+
+
   buildLegend();
+
   render();
+
+})();
+
+</script>
+
+
+
+<script>
+(function () {
+  const timeEl = document.getElementById("live-time");
+  const dateEl = document.getElementById("live-date");
+  const timezoneEl = document.getElementById("live-timezone");
+  const utcEl = document.getElementById("live-utc");
+  if (!timeEl || !dateEl) return;
+
+  const timezone = "Asia/Ho_Chi_Minh";
+  const timeFormatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: timezone, hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
+  });
+  const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: timezone, weekday: "long", day: "2-digit", month: "long", year: "numeric"
+  });
+  const offsetFormatter = new Intl.DateTimeFormat("en", {
+    timeZone: timezone, timeZoneName: "longOffset"
+  });
+
+  function updateClock() {
+    const now = new Date();
+    const iso = now.toISOString();
+    timeEl.dateTime = iso;
+    timeEl.textContent = timeFormatter.format(now);
+    dateEl.dateTime = iso;
+    dateEl.textContent = dateFormatter.format(now).toUpperCase();
+    if (timezoneEl) timezoneEl.textContent = timezone.toUpperCase();
+    if (utcEl) {
+      const zonePart = offsetFormatter.formatToParts(now).find(part => part.type === "timeZoneName");
+      utcEl.textContent = zonePart ? zonePart.value.replace("GMT", "UTC") : "UTC+07:00";
+    }
+  }
+
+  function scheduleNextUpdate() {
+    updateClock();
+    window.setTimeout(scheduleNextUpdate, 1000 - (Date.now() % 1000));
+  }
+  scheduleNextUpdate();
 })();
 </script>
 </body>
